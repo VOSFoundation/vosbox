@@ -20,7 +20,7 @@ namespace vosbox
                 string[] a = line.Split(' ');
                 if (a[0] == "ls")
                 {
-                    foreach (string file in this.Process.OS.FileSystem.EnumerateEntries("/"))
+                    foreach (string file in this.Process.OS.FileSystem.EnumerateEntries(currentDirectory))
                     {
                         this.Process.Shell.WriteLine(file);
                     }
