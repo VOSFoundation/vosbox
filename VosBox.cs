@@ -17,6 +17,7 @@ namespace vosbox
             {
                 this.Process.Shell.Write(currentDirectory + " > ");
                 string line = this.Process.Shell.ReadLine();
+                if (string.IsNullOrEmpty(line)) continue;
                 string[] a = line.Split(' ');
                 if (a[0] == "ls")
                 {
