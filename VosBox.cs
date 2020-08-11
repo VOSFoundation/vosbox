@@ -28,7 +28,10 @@ namespace vosbox
                 }
                 else if (a[0] == "cd")
                 {
-                    currentDirectory += a[1];
+                    if (a[1][0] == '/')
+                        currentDirectory = a[1];
+                    else
+                        currentDirectory = string.Format("{0}/{1}", currentDirectory, a[1]).Replace("//", "/");
                 }
                 else if (a[0] == "csc")
                 {
