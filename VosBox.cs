@@ -33,6 +33,16 @@ namespace vosbox
                     else
                         currentDirectory = string.Format("{0}/{1}", currentDirectory, a[1]).Replace("//", "/");
                 }
+                else if (a[0] == "cat")
+                {
+                    string filename = "";
+                    if (a[1][0] == '/')
+                        filename = a[1];
+                    else
+                        filename = string.Format("{0}/{1}", currentDirectory, a[1]).Replace("//", "/");
+                    string content = this.Process.OS.FileSystem.ReadAllText(filename);
+                    this.Process.Shell.WriteLine(content);
+                }
                 else if (a[0] == "csc")
                 {
                     this.Process.Shell.WriteLine("VOS compiler");
